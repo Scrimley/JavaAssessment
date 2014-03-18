@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public final class tempPanel {
 	
 	private tempPanel () {
-		
+		JPanel tempPanel = new JPanel();
 	}
 	
 	public static JPanel add(Component item) {
