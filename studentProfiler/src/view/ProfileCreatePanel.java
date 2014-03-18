@@ -2,6 +2,8 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
@@ -22,37 +24,41 @@ public class ProfileCreatePanel extends JPanel {
 	private JTextField name;
 	private JTextField pnumber;
 	private JButton createButton;
-	private GridLayout experimentLayout = new GridLayout(0,2,10,5);
 
 	public ProfileCreatePanel() {
 		
 		cboCourses = new JComboBox<Course>();
 		Course[] courses = setupAndGetCourses();
+		cboCourses.getPreferredSize();
 		populateComboBox(courses);
 		
-		name = new JTextField();
+		name = new JTextField(13);
         
-        pnumber = new JTextField();
+        pnumber = new JTextField(13);
 		
 		createButton = new JButton("Create Profile");
 		Box buttonBox = Box.createHorizontalBox();
 		buttonBox.add(createButton);
-		
-		final JPanel profileGrid = new JPanel();
-		
+				
 		//make labels
 		JLabel courselbl = new JLabel("Select course:", SwingConstants.RIGHT);
 		JLabel namelbl = new JLabel("Input full name:", SwingConstants.RIGHT);
 		JLabel pnumberlbl = new JLabel("Input P number:", SwingConstants.RIGHT);
+		courselbl.getPreferredSize();
+		namelbl.getPreferredSize();
+		pnumberlbl.getPreferredSize();
 
-		profileGrid.setLayout(experimentLayout);
-	    profileGrid.add(courselbl);
-        profileGrid.add(cboCourses);
-        profileGrid.add(namelbl);
-        profileGrid.add(name);
-        profileGrid.add(pnumberlbl);
-        profileGrid.add(pnumber);
-        
+		//add items to grid
+		GridLayout gridlayout = new GridLayout(0,2,10,5);
+		final JPanel profileGrid = new JPanel();
+		profileGrid.setLayout(gridlayout);
+	    profileGrid.add(tempPanel.add(courselbl));
+        profileGrid.add(tempPanel.add(cboCourses));
+        profileGrid.add(tempPanel.add(namelbl));
+        profileGrid.add(tempPanel.add(name));
+        profileGrid.add(tempPanel.add(pnumberlbl));
+        profileGrid.add(tempPanel.add(pnumber));
+       
         Box outerBox = Box.createVerticalBox();
         outerBox.add(Box.createVerticalStrut(10), BorderLayout.NORTH);
         outerBox.add(profileGrid, BorderLayout.CENTER);
@@ -61,7 +67,7 @@ public class ProfileCreatePanel extends JPanel {
         
         this.add(outerBox);
 	}
-
+	
 	public void populateComboBox(Course[] courses) { 
 		for (Course c : courses) { 
 			cboCourses.addItem(c); 
