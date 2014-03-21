@@ -22,7 +22,6 @@ public class OverviewPanel extends JPanel {
 		
 		this.add(tempPanel.add(ResultArea));
 		
-		
 	}
 	
 }

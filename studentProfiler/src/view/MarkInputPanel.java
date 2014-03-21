@@ -3,12 +3,15 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.Course;
 
 public class MarkInputPanel extends JPanel {
 	
@@ -87,4 +90,22 @@ public class MarkInputPanel extends JPanel {
 		
 	}
 	
+	public void addClearListener(ActionListener al) {
+		clearButton.addActionListener(al);
+	}
+	
+	public void clearAll() {
+		cwk1.setText("");
+		cwk2.setText("");
+		cwk3.setText("");
+		cwk4.setText("");
+		exam1.setText("");
+		exam2.setText("");
+		exam3.setText("");
+		exam4.setText("");
+	}
+	
+	public void addSubmitListener(ActionListener al) {
+		submitButton.addActionListener(al);
+	}
 }
