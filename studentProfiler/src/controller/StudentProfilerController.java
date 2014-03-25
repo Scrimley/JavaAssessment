@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 
 import model.*;
 import view.*;
@@ -72,12 +73,29 @@ public class StudentProfilerController {
 		return courses; 
 	}
 	
+	private void updateLabelsWithModules() {
+		
+		int i = 1;
+		
+		Iterator<Module> iter = model.getCourse().getModules().iterator();
+
+		while (iter.hasNext()) {
+		  Object Module = iter.next();
+		  System.out.println(Module);
+		  String name = ((Module) Module).getModuleName();
+		  String code = ((Module) Module).getModuleCode();
+		  MarkInput.setLabel(i, code , name);
+		  i++;
+		}
+	}
+	
     private class CreateButtonHandler implements ActionListener {
     	public void actionPerformed(ActionEvent e) {
     		model.setCourse(CreatePanel.getSelectedCourse());
     		model.setpNumber(CreatePanel.getPNumber());
     		model.setStudentName(CreatePanel.getName());
-    		
+    		updateLabelsWithModules();
+    		System.out.print(model.getCourse().getModules());
     	}
     }
     

@@ -1,16 +1,21 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
-public class markInputPanel extends JPanel {
+import model.Course;
+
+public class MarkInputPanel extends JPanel {
 	
 	//Labels
 	private JLabel field1;
@@ -34,26 +39,31 @@ public class markInputPanel extends JPanel {
 	private JButton clearButton;
 	private JButton submitButton;
 	
-	public markInputPanel() {
+	public MarkInputPanel() {
 		
-		JLabel field1 = new JLabel("Profile not created");
-		JLabel field2 = new JLabel("Profile not created");
-		JLabel field3 = new JLabel("Profile not created");
-		JLabel field4 = new JLabel("Profile not created");
+		String msg = "Profile not created";
 		
-		JTextField cwk1 = new JTextField(2);
-		JTextField cwk2 = new JTextField(2);
-		JTextField cwk3 = new JTextField(2);
-		JTextField cwk4 = new JTextField(2);
+		field1 = new JLabel(msg);
+		field2 = new JLabel(msg);
+		field3 = new JLabel(msg);
+		field4 = new JLabel(msg);
 		
-		JTextField exam1 = new JTextField(2);
-		JTextField exam2 = new JTextField(2);
-		JTextField exam3 = new JTextField(2);
-		JTextField exam4 = new JTextField(2);
+		cwk1 = new JTextField(2);
+		cwk2 = new JTextField(2);
+		cwk3 = new JTextField(2);
+		cwk4 = new JTextField(2);
+		
+		exam1 = new JTextField(2);
+		exam2 = new JTextField(2);
+		exam3 = new JTextField(2);
+		exam4 = new JTextField(2);
 		
 		GridLayout gridLayout = new GridLayout(0,3,10,10);
 		final JPanel inputGrid = new JPanel();
 		inputGrid.setLayout(gridLayout);
+		inputGrid.add(tempPanel.add(new JLabel("Module")));
+		inputGrid.add(tempPanel.add(new JLabel("Cwk Mark")));
+		inputGrid.add(tempPanel.add(new JLabel("Exam Mark")));
 		inputGrid.add(tempPanel.add(field1));
 		inputGrid.add(tempPanel.add(cwk1));
 		inputGrid.add(tempPanel.add(exam1));
@@ -84,4 +94,42 @@ public class markInputPanel extends JPanel {
 		
 	}
 	
+	public void addClearListener(ActionListener al) {
+		clearButton.addActionListener(al);
+	}
+	
+	public void clearAll() {
+		cwk1.setText("");
+		cwk2.setText("");
+		cwk3.setText("");
+		cwk4.setText("");
+		exam1.setText("");
+		exam2.setText("");
+		exam3.setText("");
+		exam4.setText("");
+	}
+	
+	public void addSubmitListener(ActionListener al) {
+		submitButton.addActionListener(al);
+	}
+	
+	public void setLabel(int i, String code, String Title) {
+	
+		String module = "" + code + " " + Title + "";
+		
+		switch (i) {
+			case 1: field1.setText(module);
+					field1.setBorder(new LineBorder(Color.BLACK));
+					break;
+			case 2: field2.setText(module);
+			field2.setBorder(new LineBorder(Color.BLACK));
+					break;
+			case 3: field3.setText(module);
+			field3.setBorder(new LineBorder(Color.BLACK));
+					break;
+			case 4: field4.setText(module);
+			field4.setBorder(new LineBorder(Color.BLACK));
+					break;
+		}
+	}
 }

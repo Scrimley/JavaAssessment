@@ -5,14 +5,14 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
-public class studentProfilerFrame extends JFrame {
+public class StudentProfilerFrame extends JFrame {
 	
 	private MenuBar bar;
 	private ProfileCreatePanel tab1;
 	private MarkInputPanel tab2;
 	private OverviewPanel tab3;
 	
-	public studentProfilerFrame() {
+	public StudentProfilerFrame() {
 		this.setTitle("Student Progress Calculator");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -45,8 +45,16 @@ public class studentProfilerFrame extends JFrame {
 		this.setVisible(true);
 		//this.setResizable(false); // stop this container from being resized.
 	}
-	
-	public static void main(String[] arg) {
-		studentProfilerFrame frame = new studentProfilerFrame();
+
+	public MarkInputPanel getMarkInputPanel() {
+		return tab2;
+	}
+
+	public ProfileCreatePanel getProfileCreatePanel() {
+		return tab1;
+	}
+
+	public OverviewPanel getOverviewPanel() {
+		return tab3;
 	}
 }
