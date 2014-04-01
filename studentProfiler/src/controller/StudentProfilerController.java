@@ -107,7 +107,27 @@ public class StudentProfilerController {
 	
     private class SubmitButtonHandler implements ActionListener {
     	public void actionPerformed(ActionEvent e) {
+
+    		submitDatatoModel();
     		
     	}
-    }    
+    }
+    
+	private void submitDatatoModel() {
+		
+		int i = 1;
+		
+		Iterator<Module> iter = model.getCourse().getModules().iterator();
+
+		while (iter.hasNext()) {
+		  Object Module = iter.next();
+		  System.out.println(Module);
+		  String code = ((Module) Module).getModuleCode();
+		  model.getCourse().getModule(code).setCwkMark(MarkInput.getCwk(i));
+		  model.getCourse().getModule(code).setExamMark(MarkInput.getExam(i));
+		  i++;
+		}
+		
+		System.out.print(model.getCourse().getModules());
+	}
 }

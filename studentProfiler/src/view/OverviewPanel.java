@@ -18,7 +18,7 @@ public class OverviewPanel extends JPanel {
 	
 	public OverviewPanel() {
 		
-		ResultArea = new JTextArea ("Overview will appear here",15,25);
+		ResultArea = new JTextArea ("Overview will appear here",9,40);
 		
 		this.add(tempPanel.add(ResultArea));
 		

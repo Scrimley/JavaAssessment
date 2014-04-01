@@ -23,7 +23,7 @@ public class StudentProfilerFrame extends JFrame {
 	    
 		//create tabPane
 		JTabbedPane tabPane = new JTabbedPane(JTabbedPane.TOP);
-	    tabPane.setPreferredSize(new Dimension(600, 337));
+	    tabPane.setPreferredSize(new Dimension(550, 200));
 	    this.add(tabPane); //add tab pane to the frame's content.
 	    
 	    //create tab1
