@@ -7,7 +7,7 @@ import javax.swing.JTabbedPane;
 
 public class StudentProfilerFrame extends JFrame {
 	
-	private MenuBar bar;
+	private MyMenuBar bar;
 	private ProfileCreatePanel tab1;
 	private MarkInputPanel tab2;
 	private OverviewPanel tab3;
@@ -17,13 +17,13 @@ public class StudentProfilerFrame extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	    //create bar
-	    bar = new MenuBar();
-	    bar = new MenuBar();
+	    bar = new MyMenuBar();
+	    bar = new MyMenuBar();
 		this.setJMenuBar(bar);
 	    
 		//create tabPane
 		JTabbedPane tabPane = new JTabbedPane(JTabbedPane.TOP);
-	    tabPane.setPreferredSize(new Dimension(400, 300));
+	    tabPane.setPreferredSize(new Dimension(600, 337));
 	    this.add(tabPane); //add tab pane to the frame's content.
 	    
 	    //create tab1

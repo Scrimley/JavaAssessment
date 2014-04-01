@@ -1,19 +1,12 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
-
-import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
-
-import model.Course;
 
 public class MarkInputPanel extends JPanel {
 	
@@ -58,40 +51,62 @@ public class MarkInputPanel extends JPanel {
 		exam3 = new JTextField(2);
 		exam4 = new JTextField(2);
 		
-		GridLayout gridLayout = new GridLayout(0,3,10,10);
-		final JPanel inputGrid = new JPanel();
-		inputGrid.setLayout(gridLayout);
-		inputGrid.add(tempPanel.add(new JLabel("Module")));
-		inputGrid.add(tempPanel.add(new JLabel("Cwk Mark")));
-		inputGrid.add(tempPanel.add(new JLabel("Exam Mark")));
-		inputGrid.add(tempPanel.add(field1));
-		inputGrid.add(tempPanel.add(cwk1));
-		inputGrid.add(tempPanel.add(exam1));
-		inputGrid.add(tempPanel.add(field2));
-		inputGrid.add(tempPanel.add(cwk2));
-		inputGrid.add(tempPanel.add(exam2));
-		inputGrid.add(tempPanel.add(field3));
-		inputGrid.add(tempPanel.add(cwk3));
-		inputGrid.add(tempPanel.add(exam3));
-		inputGrid.add(tempPanel.add(field4));
-		inputGrid.add(tempPanel.add(cwk4));
-		inputGrid.add(tempPanel.add(exam4));
+		//JPanel this = new JPanel();
+		
+		GridBagLayout gridbag = new GridBagLayout();
+        GridBagConstraints c = new GridBagConstraints();
+        setLayout(gridbag);
+
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1.0;
+        c.weighty = 1.0;
+        
+        GridBagConstraints m = new GridBagConstraints();
+        setLayout(gridbag);
+
+        m.fill = GridBagConstraints.BOTH;
+        m.weightx = 0.5;
+        m.weighty = 0.5;
+        
+        this.add(tempPanel.add(new JLabel("Module")), c);
+        this.add(tempPanel.add(new JLabel("Cwk Mark")), m);
+        this.add(tempPanel.add(new JLabel("Exam Mark")), m);
+		c.gridy = 1;
+		m.gridy = 1;
+		this.add(tempPanel.add(field1), c);
+		this.add(tempPanel.add(cwk1), m);
+		this.add(tempPanel.add(exam1), m);
+		c.gridy = 2;
+		m.gridy = 2;
+		this.add(tempPanel.add(field2), c);
+		this.add(tempPanel.add(cwk2), m);
+		this.add(tempPanel.add(exam2), m);
+		c.gridy = 3;
+		m.gridy = 3;
+		this.add(tempPanel.add(field3), c);
+		this.add(tempPanel.add(cwk3), m);
+		this.add(tempPanel.add(exam3), m);
+		c.gridy = 4;
+		m.gridy = 4;
+		this.add(tempPanel.add(field4), c);
+		this.add(tempPanel.add(cwk4), m);
+		this.add(tempPanel.add(exam4), m);
+		
+        GridBagConstraints b = new GridBagConstraints();
+        setLayout(gridbag);
+        
+		b.gridy = 5;
 		
 		clearButton = new JButton("Clear");
 		submitButton = new JButton("Submit");
-		Box buttonBox = Box.createHorizontalBox();
-		buttonBox.add(clearButton);
-		buttonBox.add(Box.createHorizontalStrut(10));
-		buttonBox.add(submitButton);
+		b.gridx = 1;
+		this.add(clearButton,b);
+		b.gridx = 2;
+		this.add(submitButton,b);
+		b.gridy = 6;
 		
-		Box outerBox = Box.createVerticalBox();
-        outerBox.add(Box.createVerticalStrut(10), BorderLayout.NORTH);
-        outerBox.add(inputGrid, BorderLayout.CENTER);
-        outerBox.add(Box.createVerticalStrut(10), BorderLayout.SOUTH);
-        outerBox.add(buttonBox, BorderLayout.SOUTH);
-		
-		this.add(outerBox);
-		
+		tempPanel p = new tempPanel();
+		this.add(tempPanel.get(), b);
 	}
 	
 	public void addClearListener(ActionListener al) {
@@ -119,16 +134,12 @@ public class MarkInputPanel extends JPanel {
 		
 		switch (i) {
 			case 1: field1.setText(module);
-					field1.setBorder(new LineBorder(Color.BLACK));
 					break;
 			case 2: field2.setText(module);
-			field2.setBorder(new LineBorder(Color.BLACK));
 					break;
 			case 3: field3.setText(module);
-			field3.setBorder(new LineBorder(Color.BLACK));
 					break;
 			case 4: field4.setText(module);
-			field4.setBorder(new LineBorder(Color.BLACK));
 					break;
 		}
 	}

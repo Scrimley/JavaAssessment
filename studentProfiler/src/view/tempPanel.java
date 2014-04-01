@@ -5,8 +5,9 @@ import java.awt.Component;
 import javax.swing.JPanel;
 
 public final class tempPanel {
+
 	
-	private tempPanel () {
+	public tempPanel () {
 		JPanel tempPanel = new JPanel();
 	}
 	
@@ -14,6 +15,11 @@ public final class tempPanel {
 		
 		JPanel tempPanel = new JPanel();
 		tempPanel.add(item);
+		return tempPanel;
+	}
+	
+	public static JPanel get () {
+		JPanel tempPanel = new JPanel();
 		return tempPanel;
 	}
 
