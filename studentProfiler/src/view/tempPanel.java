@@ -2,16 +2,10 @@ package view;
 
 import java.awt.Component;
 import java.awt.FlowLayout;
-import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
 
 public final class tempPanel {
-
-	
-	public tempPanel () {
-		JPanel tempPanel = new JPanel();
-	}
 	
 	public static JPanel add(Component item) {
 		

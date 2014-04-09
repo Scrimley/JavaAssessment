@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
@@ -59,36 +60,40 @@ public class MarkInputPanel extends JPanel {
 
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1.0;
-        c.weighty = 1.0;
+        c.gridheight = 1;
         
         GridBagConstraints m = new GridBagConstraints();
         setLayout(gridbag);
 
         m.fill = GridBagConstraints.BOTH;
         m.weightx = 0.5;
-        m.weighty = 0.5;
+        m.gridheight = 1;
         
         this.add(tempPanel.add(new JLabel("Module")), c);
         this.add(tempPanel.add(new JLabel("Cwk Mark")), m);
         this.add(tempPanel.add(new JLabel("Exam Mark")), m);
+        
 		c.gridy = 1;
 		m.gridy = 1;
-		this.add(tempPanel.add(field1), c);
+		this.add(tempPanel.addWithLayout(field1, FlowLayout.LEFT), c);
 		this.add(tempPanel.add(cwk1), m);
 		this.add(tempPanel.add(exam1), m);
+		
 		c.gridy = 2;
 		m.gridy = 2;
-		this.add(tempPanel.add(field2), c);
+		this.add(tempPanel.addWithLayout(field2, FlowLayout.LEFT), c);
 		this.add(tempPanel.add(cwk2), m);
 		this.add(tempPanel.add(exam2), m);
+		
 		c.gridy = 3;
 		m.gridy = 3;
-		this.add(tempPanel.add(field3), c);
+		this.add(tempPanel.addWithLayout(field3, FlowLayout.LEFT), c);
 		this.add(tempPanel.add(cwk3), m);
 		this.add(tempPanel.add(exam3), m);
+		
 		c.gridy = 4;
 		m.gridy = 4;
-		this.add(tempPanel.add(field4), c);
+		this.add(tempPanel.addWithLayout(field4, FlowLayout.LEFT), c);
 		this.add(tempPanel.add(cwk4), m);
 		this.add(tempPanel.add(exam4), m);
 		
@@ -103,9 +108,8 @@ public class MarkInputPanel extends JPanel {
 		this.add(clearButton,b);
 		b.gridx = 2;
 		this.add(submitButton,b);
-		b.gridy = 6;
 		
-		tempPanel p = new tempPanel();
+		b.gridy = 6;
 		this.add(tempPanel.get(), b);
 	}
 	
@@ -140,6 +144,56 @@ public class MarkInputPanel extends JPanel {
 			case 3: field3.setText(module);
 					break;
 			case 4: field4.setText(module);
+					break;
+		}
+	}
+	
+	public int getExam(int i) {
+		
+		switch (i) {
+		case 1: return Integer.parseInt(exam1.getText());
+		case 2: return Integer.parseInt(exam2.getText());
+		case 3: return Integer.parseInt(exam3.getText());
+		case 4: return Integer.parseInt(exam4.getText());
+		default: return 0;
+		}
+	}
+	
+	public int getCwk(int i) {
+		
+		switch (i) {
+			case 1: return Integer.parseInt(cwk1.getText());
+			case 2: return Integer.parseInt(cwk2.getText());
+			case 3: return Integer.parseInt(cwk3.getText());
+			case 4: return Integer.parseInt(cwk4.getText());
+			default: return 0;
+		}
+	}
+	
+	public void setExam(int i, int mark) {
+		
+		switch (i) {
+			case 1: exam1.setText(String.valueOf(mark));
+					break;
+			case 2: exam2.setText(String.valueOf(mark));
+					break;
+			case 3: exam3.setText(String.valueOf(mark));
+					break;
+			case 4: exam4.setText(String.valueOf(mark));
+					break;
+		}
+	}
+	
+	public void setCwk(int i, int mark) {
+		
+		switch (i) {
+			case 1: cwk1.setText(String.valueOf(mark));
+					break;
+			case 2: cwk2.setText(String.valueOf(mark));
+					break;
+			case 3: cwk3.setText(String.valueOf(mark));
+					break;
+			case 4: cwk4.setText(String.valueOf(mark));
 					break;
 		}
 	}

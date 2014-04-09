@@ -1,16 +1,7 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-
-import javax.swing.Box;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class OverviewPanel extends JPanel {
 	
@@ -18,10 +9,15 @@ public class OverviewPanel extends JPanel {
 	
 	public OverviewPanel() {
 		
-		ResultArea = new JTextArea ("Overview will appear here",9,40);
-		
+		ResultArea = new JTextArea ("Overview will appear here",13,40);
+		ResultArea.setEditable(false);
 		this.add(tempPanel.add(ResultArea));
 		
 	}
 	
+	public void updateResultArea(String data) {
+		
+		ResultArea.setText(data);
+		
+	}
 }

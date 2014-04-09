@@ -1,13 +1,9 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,7 +13,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import model.Course;
-import model.Module;
 
 public class ProfileCreatePanel extends JPanel {
 
@@ -77,15 +72,15 @@ public class ProfileCreatePanel extends JPanel {
 		createButton.addActionListener(al);
 	}
 	
-	public Course getSelectedCourse () {
-		return (Course) cboCourses.getSelectedItem();
+	public JComboBox<Course> getCourse() {
+		return cboCourses;
 	}
 	
-	public String getName() {
-		return name.getText();
+	public JTextField getNameInput() {
+		return name;
 	}
 	
-	public String getPNumber() {
-		return pnumber.getText();
+	public JTextField getpNumberInput() {
+		return pnumber;
 	}
 }

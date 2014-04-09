@@ -11,6 +11,7 @@ public class StudentProfilerFrame extends JFrame {
 	private ProfileCreatePanel tab1;
 	private MarkInputPanel tab2;
 	private OverviewPanel tab3;
+	private JTabbedPane tabPane;
 	
 	public StudentProfilerFrame() {
 		this.setTitle("Student Progress Calculator");
@@ -22,8 +23,8 @@ public class StudentProfilerFrame extends JFrame {
 		this.setJMenuBar(bar);
 	    
 		//create tabPane
-		JTabbedPane tabPane = new JTabbedPane(JTabbedPane.TOP);
-	    tabPane.setPreferredSize(new Dimension(600, 337));
+		tabPane = new JTabbedPane(JTabbedPane.TOP);
+	    tabPane.setPreferredSize(new Dimension(550, 280));
 	    this.add(tabPane); //add tab pane to the frame's content.
 	    
 	    //create tab1
@@ -43,7 +44,6 @@ public class StudentProfilerFrame extends JFrame {
 		
 		this.pack();
 		this.setVisible(true);
-		//this.setResizable(false); // stop this container from being resized.
 	}
 
 	public MarkInputPanel getMarkInputPanel() {
@@ -56,5 +56,13 @@ public class StudentProfilerFrame extends JFrame {
 
 	public OverviewPanel getOverviewPanel() {
 		return tab3;
+	}
+	
+	public JTabbedPane getTabPane() {
+		return tabPane;
+	}
+	
+	public MyMenuBar getMyMenuBar() {
+		return bar;
 	}
 }

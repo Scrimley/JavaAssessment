@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JMenu;
@@ -59,5 +60,21 @@ public class MyMenuBar extends JMenuBar {
 
 		this.add(menu); //add the menu to this menubar
 
+	}
+	
+	public void addLoadItemListener(ActionListener al) {
+		loadItem.addActionListener(al);
+	}
+	
+	public void addSaveItemListener(ActionListener al) {
+		saveItem.addActionListener(al);
+	}
+	
+	public void addExitItemListener(ActionListener al) {
+		exitItem.addActionListener(al);
+	}
+	
+	public void addAboutItemListener(ActionListener al) {
+		aboutItem.addActionListener(al);
 	}
 }

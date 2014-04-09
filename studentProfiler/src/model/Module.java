@@ -1,6 +1,8 @@
 package model;
 
-public class Module {
+import java.io.Serializable;
+
+public class Module implements Serializable{
 	
 	private String moduleCode;
 	private String moduleName;
